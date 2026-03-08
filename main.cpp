@@ -20,11 +20,14 @@ void displayRatings(Node *);
  * @return 
 */
 int main() {
+    int choice;
     bool exit = false;
+    Node *head = nullptr;
 
     cout << "which linked list method should we use?" << endl;
     cout << "   [1] New nodes are added at the head of the linked list" << endl;
     cout << "   [2] New nodes are added at the tail of the linked list" << endl;
+    cout << "   Choice: "; cin >> choice;
 
     while (!exit){}
     return 0;
