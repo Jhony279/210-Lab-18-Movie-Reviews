@@ -3,7 +3,11 @@
 #include <iostream>
 using namespace std;
 
-// Function Prototypes:
+struct Node {
+    int rating;
+    string comment;
+    Node* next;
+};
 
 /**
  * @brief - Description of main
@@ -12,8 +16,3 @@ using namespace std;
 int main() {
     return 0;
 }
-
-// Function Definitions:
-
-// Reminder lines must be 80 characters or less, no more than one empty line, no magic numbers,
-// and Reminder to comment code where neccessary.
