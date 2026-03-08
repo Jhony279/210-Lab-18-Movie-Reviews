@@ -26,9 +26,7 @@ int main() {
         int choice;
         string leave;
 
-        if (choice == 1 || choice == 2) {
-            continue; // valid choice, proceed with the loop
-        } else {
+        if (!choice == 1 || !choice == 2) {
             cout << "Please enter 1 or 2." << endl;
             cout << "   [1] New nodes are added at the head of the linked list" << endl;
             cout << "   [2] New nodes are added at the tail of the linked list" << endl;
@@ -51,7 +49,7 @@ int main() {
             cout << "Invalid choice. ";
             continue; // skip the rest of the loop and ask for input again
         }
-        if (leave == "Y" || leave == "y") { exit = true; }
+        if (leave == "Y" || leave == "y") exit = true;
     }
     return 0;
 }
