@@ -38,18 +38,23 @@ int main() {
             cout << "Enter review comments: "; string comment; cin >> comment;
 
             insertNodeFront(head, rating, comment);
-            continue;
+            cout << "Enter another review? Y/N: "; cin >> leave;
         } else if (choice == 2) {
             cout << "Enter review rating 0-5: "; int rating; cin >> rating;
             cout << "Enter review comments: "; string comment; cin >> comment;
 
             insertNodeEnd(head, rating, comment);
-            continue;
+            cout << "Enter another review? Y/N: "; cin >> leave;
         } else {
             cout << "Invalid choice. ";
             continue; // skip the rest of the loop and ask for input again
         }
-        if (leave == "Y" || leave == "y") exit = true;
+
+        if (leave == "N" || leave == "n") {
+            exit = true;
+            displayRatings(head);
+            cout << "Exiting program." << endl;
+        }
     }
     return 0;
 }
@@ -83,4 +88,22 @@ void insertNodeFront(Node *&hd, int rating, string comment){
     // insert the new node at the front of the list
     newnode->next = hd;
     hd = newnode;
+}
+
+void displayRatings(Node * hd) {
+    // output the linked list
+    if (!hd) {
+        cout << "Empty list.\n";
+        return;
+    }
+    int count = 1;
+    Node * current = hd;
+    // traverse the list and output each node's value
+    cout << "Outputting all reviews:\n";
+    while (current) {
+        cout << "   > Review #" << count++ << ": " << current->rating 
+            << ": " << current->comment << endl;
+        current = current->next;
+    }
+    cout << endl;
 }
