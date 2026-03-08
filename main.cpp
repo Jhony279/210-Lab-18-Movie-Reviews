@@ -32,3 +32,30 @@ int main() {
     while (!exit){}
     return 0;
 }
+
+void insertNodeEnd(Node *&hd){
+    // insert a node at the end of the list
+    Node * newnode = new Node;
+    int count = 1;
+
+    newnode->next = nullptr;
+
+    if (!hd) { // if the list is empty, make the new node the head
+        hd = newnode;
+    } else { // otherwise, find the end of the list and append the new node
+        Node * current = hd;
+        while (current->next) {
+            current = current->next;
+        }
+        current->next = newnode;
+    }
+}
+
+void insertNodeFront(Node *&hd){
+    // insert a node at the front of the list
+    Node * newnode = new Node;
+
+    // insert the new node at the front of the list
+    newnode->next = hd;
+    hd = newnode;
+}
