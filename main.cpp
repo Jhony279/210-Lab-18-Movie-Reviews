@@ -24,12 +24,25 @@ int main() {
     bool exit = false;
     Node *head = nullptr;
 
-    cout << "which linked list method should we use?" << endl;
-    cout << "   [1] New nodes are added at the head of the linked list" << endl;
-    cout << "   [2] New nodes are added at the tail of the linked list" << endl;
-    cout << "   Choice: "; cin >> choice;
+    while (!exit){
+        if (choice == 1 || choice == 2) {
+            continue; // valid choice, proceed with the loop
+        } else {
+            cout << "Invalid choice. Please enter 1 or 2." << endl;
+            cout << "   [1] New nodes are added at the head of the linked list" << endl;
+            cout << "   [2] New nodes are added at the tail of the linked list" << endl;
+            cout << "   Choice: "; cin >> choice;
+        }
 
-    while (!exit){}
+        if (choice == 1) {
+            insertNodeFront(head);
+        } else if (choice == 2) {
+            insertNodeEnd(head);
+        } else {
+            cout << "Invalid choice. Please enter 1 or 2." << endl;
+            continue; // skip the rest of the loop and ask for input again
+        }
+    }
     return 0;
 }
 
