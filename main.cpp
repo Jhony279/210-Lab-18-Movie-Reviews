@@ -9,7 +9,6 @@ struct Node {
     Node* next;
 };
 
-void populateNode(Node *&);
 void insertNodeFront(Node *&, int, string);
 void insertNodeEnd(Node *&, int, string);
 void displayRatings(Node *);
@@ -30,7 +29,7 @@ int main() {
         if (choice == 1 || choice == 2) {
             continue; // valid choice, proceed with the loop
         } else {
-            cout << "Invalid choice. Please enter 1 or 2." << endl;
+            cout << "Please enter 1 or 2." << endl;
             cout << "   [1] New nodes are added at the head of the linked list" << endl;
             cout << "   [2] New nodes are added at the tail of the linked list" << endl;
             cout << "   Choice: "; cin >> choice;
@@ -49,7 +48,7 @@ int main() {
             insertNodeEnd(head, rating, comment);
             continue;
         } else {
-            cout << "Invalid choice. Please enter 1 or 2." << endl;
+            cout << "Invalid choice. ";
             continue; // skip the rest of the loop and ask for input again
         }
         if (leave == "Y" || leave == "y") { exit = true; }
