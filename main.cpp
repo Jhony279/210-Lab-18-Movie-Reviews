@@ -35,13 +35,17 @@ int main() {
 
         if (choice == 1) {
             cout << "Enter review rating 0-5: "; int rating; cin >> rating;
-            cout << "Enter review comments: "; string comment; cin >> comment;
+            cout << "Enter review comments: "; string comment; 
+            cin.ignore();
+            getline(cin, comment);
 
             insertNodeFront(head, rating, comment);
             cout << "Enter another review? Y/N: "; cin >> leave;
         } else if (choice == 2) {
             cout << "Enter review rating 0-5: "; int rating; cin >> rating;
-            cout << "Enter review comments: "; string comment; cin >> comment;
+            cout << "Enter review comments: "; string comment; 
+            cin.ignore();
+            getline(cin, comment);
 
             insertNodeEnd(head, rating, comment);
             cout << "Enter another review? Y/N: "; cin >> leave;
@@ -97,13 +101,15 @@ void displayRatings(Node * hd) {
         return;
     }
     int count = 1;
+    int totalRating = 0;
     Node * current = hd;
     // traverse the list and output each node's value
     cout << "Outputting all reviews:\n";
     while (current) {
         cout << "   > Review #" << count++ << ": " << current->rating 
             << ": " << current->comment << endl;
+        totalRating += current->rating;
         current = current->next;
     }
-    cout << endl;
+    cout << "   >Average: " << totalRating/(count) << endl;
 }
